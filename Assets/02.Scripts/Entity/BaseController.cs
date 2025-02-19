@@ -5,6 +5,7 @@ using UnityEngine;
 public class BaseController : MonoBehaviour
 {
     protected Rigidbody2D rigid;
+    protected AnimationHandler animationHandler;
 
     [SerializeField] private SpriteRenderer characterRenderer;
     [SerializeReference] private Transform weaponPivot;
@@ -21,6 +22,7 @@ public class BaseController : MonoBehaviour
     protected virtual void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
+        animationHandler = GetComponent<AnimationHandler>();
     }
 
     protected virtual void Start()
@@ -60,6 +62,7 @@ public class BaseController : MonoBehaviour
         }
 
         rigid.velocity = direction;
+        animationHandler.Move(direction);
     }
 
     private void Rotate(Vector2 direction)
