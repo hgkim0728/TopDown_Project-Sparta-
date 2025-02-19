@@ -3956,6 +3956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterRenderer: {fileID: 181767897}
   weaponPivot: {fileID: 1681744009}
+  weaponPrefab: {fileID: 1828365842795617275, guid: 1c4489db70522b24ca8cc330a2006737, type: 3}
 --- !u!61 &1797283353
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4069,6 +4070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2959db42586df0746a51d0382b541877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthChangeDelay: 0.5
 --- !u!114 &1797283358
 MonoBehaviour:
   m_ObjectHideFlags: 0
