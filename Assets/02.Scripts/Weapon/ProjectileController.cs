@@ -7,6 +7,7 @@ public class ProjectileController : MonoBehaviour
     [SerializeField] private LayerMask levelCollisionLayer;
 
     private RangeWeaponHandler rangeWeaponHandler;
+    private ProjectileManager projectileManager;
 
     private float currentDuration;
     private Vector2 direction;
@@ -55,8 +56,10 @@ public class ProjectileController : MonoBehaviour
     }
 
 
-    public void Init(Vector2 direction, RangeWeaponHandler weaponHandler)
+    public void Init(Vector2 direction, RangeWeaponHandler weaponHandler , ProjectileManager projectileManager)
     {
+        this.projectileManager = projectileManager; 
+
         rangeWeaponHandler = weaponHandler;
 
         this.direction = direction;
@@ -76,6 +79,11 @@ public class ProjectileController : MonoBehaviour
 
     private void DestroyProjectile(Vector3 position, bool createFx)
     {
+        if(createFx)
+        {
+            projectileManager.CreateImpactParticlesAtPosition(position, rangeWeaponHandler);
+        }
+
         Destroy(this.gameObject);
     }
 }
